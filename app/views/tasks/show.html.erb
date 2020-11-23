@@ -1,0 +1,10 @@
+<h2><%= @task.title %></h2>
+<p><%= @task.details %></p>
+<%= link_to "Delete #{@task.title}",
+            task_path(@task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+<%= link_to "Mark #{@task.title} as completed",
+            complete_task_path(@task),
+            method: :patch,
+            data: { confirm: "Keep going, only #{Task.count - 1}" } %>

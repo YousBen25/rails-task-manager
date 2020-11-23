@@ -1,0 +1,9 @@
+<div class="recipe-list">
+  <% @tasks.each_with_index do |task, index| %>
+  <li>
+    <%= link_to task_path(task) do %>
+      <%=index + 1%>-<%= task.completed? ? "[x]" : "[ ] - "%><%= task.title %>
+    <% end %>
+  </li>
+<% end %>
+</div>
