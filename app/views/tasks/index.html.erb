@@ -1,9 +1,18 @@
+<h1>My tasks</h1>
 <div class="recipe-list">
   <% @tasks.each_with_index do |task, index| %>
   <li>
+    <input type="checkbox" id="scales" name="scales"
+      checked>
     <%= link_to task_path(task) do %>
-      <%=index + 1%>-<%= task.completed? ? "[x]" : "[ ] - "%><%= task.title %>
+    <%=index + 1%>-<%= task.completed? ? "[x]" : "[ ] - "%><%= task.title %>
+    <% end %>
+    <%= link_to task_path(task), method: :delete, data: { confirm: "Delete #{task.title} ?" } do %>
+    <i class="fas fa-trash-alt"></i>
     <% end %>
   </li>
-<% end %>
+  <% end %>
 </div>
+<br>
+<hr>
+<%= link_to " + Create a new task", tasks_new_path%>

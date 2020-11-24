@@ -1,5 +1,10 @@
 <h2><%= @task.title %></h2>
 <p><%= @task.details %></p>
+<div>
+  <input type="checkbox" id="scales" name="scales"
+         checked>
+  <label for="scales">This task is not complete</label>
+</div>
 <%= link_to "Delete #{@task.title}",
             task_path(@task),
             method: :delete,
@@ -8,3 +13,8 @@
             complete_task_path(@task),
             method: :patch,
             data: { confirm: "Keep going, only #{Task.count - 1}" } %>
+
+<%= link_to edit_path(@task) do %>
+  <i class="fas fa-edit"></i>
+<% end %>
+<%= link_to "Go back the the list", tasks_path  %>

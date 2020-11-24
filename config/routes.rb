@@ -10,7 +10,7 @@ post "tasks", to: "tasks#create"
 get "tasks/:id", to: "tasks#show", as: :task
 
 # Update a restaurant
-get "tasks/:id/edit", to: "tasks#edit"
+get "tasks/:id/edit", to: "tasks#edit", as: :edit
 patch "tasks/:id", to: "tasks#update"
 patch "tasks/:id/complete", to: "tasks#mark_as_completed", as: :complete_task
 # Destroy a restaurant
